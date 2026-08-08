@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Product } from '../../models/Product';
 import { HttpClient } from '@angular/common/http';
 import { ProductResponseModel } from '../../models/productResponseModel';
+import { ProductService } from '../../services/product';
 
 @Component({
   selector: 'app-product',
@@ -12,16 +13,16 @@ import { ProductResponseModel } from '../../models/productResponseModel';
 export class ProductComponent {
 
   products: Product[] = [];
-  apiUrl = "http://localhost:5147/api/products/getall";
 
-  constructor(private httpClient: HttpClient) { }
+
+  constructor(private productService: ProductService) { }
   ngOnInit(): void {
     this.getProducts();
   }
-  getProducts() {
-    this.httpClient.get<ProductResponseModel>(this.apiUrl).subscribe((response) => {
-      this.products = response.data;
-    });
 
+  getProducts() {
+    this.productService.getProducts().subscribe(response => {
+      this.products = response.data;
+    })
   }
 }
