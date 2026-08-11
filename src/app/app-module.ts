@@ -6,11 +6,11 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { IlkComponentim } from './components/ilk-componentim/ilk-componentim';
 import { ProductComponent } from './components/product/product';
-import { Category } from './components/category/category';
+import { CategoryComponent } from './components/category/category';
 import { Navi } from './components/navi/navi';
 
 @NgModule({
-  declarations: [App, IlkComponentim, ProductComponent, Category, Navi],
+  declarations: [App, IlkComponentim, ProductComponent, CategoryComponent, Navi],
   imports: [BrowserModule, AppRoutingModule],
   providers: [
     provideBrowserGlobalErrorListeners(),
