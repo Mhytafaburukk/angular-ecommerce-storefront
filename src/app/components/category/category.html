@@ -4,4 +4,4 @@
         {{category.name}}</li>
 </ul>
 
-<h5>Seçili Kategori: {{currentCategory.name}}</h5>
+<h5 *ngIf="currentCategory">Seçili Kategori: {{currentCategory.name}}</h5>
