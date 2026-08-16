@@ -11,6 +11,8 @@ import { Navi } from './components/navi/navi';
 import { WatAddedPipe } from './pipes/wat-added-pipe';
 import { FormsModule } from '@angular/forms';
 import { FilterPipePipe } from './pipes/filter-pipe-pipe';
+import { ToastrModule } from 'ngx-toastr';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,12 +24,13 @@ import { FilterPipePipe } from './pipes/filter-pipe-pipe';
     WatAddedPipe,
     FilterPipePipe,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, ToastrModule.forRoot({ positionClass: 'toast-bottom-right' })],
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch()),
+    provideAnimations(),
   ],
   bootstrap: [App],
 })
-export class AppModule {}
+export class AppModule { }

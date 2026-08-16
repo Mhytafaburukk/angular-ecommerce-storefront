@@ -17,6 +17,7 @@
             <th>Fiyat</th>
             <th>KDVli Fiyat</th>
             <th>Stok Adedi</th>
+            <th>İşlem</th>
         </tr>
     </thead>
     <tbody>
@@ -27,6 +28,7 @@
             <td>{{product.price | currency}}</td>
             <td>{{(product.price | watAdded) | currency}}</td>
             <td>{{product.unitsInStock}}</td>
+            <td><button (click)="addToCart(product)" class="btn btn-success btn-sm">Sepete Ekle</button></td>
         </tr>
     </tbody>
 </table>
