@@ -1,0 +1,22 @@
+import { Injectable } from '@angular/core';
+import { CartItem } from '../models/cartItem';
+import { HttpClient } from '@angular/common/http'
+import { Product } from '../models/Product';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class Cart {
+  constructor(private http: HttpClient) { }
+  addToCart(product: Product) {
+    let item = CartItem.find(c => c.product.id == product.id)
+    if (item) {
+      item.quantity += 1
+    } else {
+      let newItem = new CartItem()
+      newItem.product = product;
+      newItem.quantity = 1;
+      CartItem.push(newItem)
+    }
+  }
+}
